@@ -43,16 +43,17 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class         instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",        NULL,     NULL,           0,         0,          0,           0,        -1 },
-	{ "LibreWolf",   NULL,     NULL,           0,         0,          0,          -1,        -1 },
-	{ "st-256color", NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,          NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
-	{ "Pavucontrol", NULL,     NULL,           0,         1,          0,           1,        -1 },
-	{ "Bitwarden",   NULL,     NULL,           0,         1,          0,           1,        -1 },
-	{ "Usbimager",   NULL,     NULL,           0,         1,          0,           1,        -1 },
-	{ "PollyMC",     NULL,     NULL,           0,         1,          0,           1,        -1 },
-	{ "antimicrox",  NULL,     NULL,           0,         1,          0,           1,        -1 },
+	/* class              instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",             NULL,     NULL,           0,         0,          0,           0,        -1 },
+	{ "LibreWolf",        NULL,     NULL,           0,         0,          0,          -1,        -1 },
+	{ "st-256color",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ NULL,               NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	{ "Gnome-screenshot", NULL,     NULL,           0,         1,          0,           1,        -1 },
+	{ "Pavucontrol",      NULL,     NULL,           0,         1,          0,           1,        -1 },
+	{ "Bitwarden",        NULL,     NULL,           0,         1,          0,           1,        -1 },
+	{ "Usbimager",        NULL,     NULL,           0,         1,          0,           1,        -1 },
+	{ "PollyMC",          NULL,     NULL,           0,         1,          0,           1,        -1 },
+	{ "antimicrox",       NULL,     NULL,           0,         1,          0,           1,        -1 },
 };
 
 /* layout(s) */
@@ -85,8 +86,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 
 static const char *appearancecmd[] = { "lxappearance", NULL };
+static const char *screenshotcmd[] = { "gnome-screenshot", "-i", NULL };
 static const char *audioctrlcmd[]  = { "pavucontrol", NULL };
-static const char *guieditorcmd[]  = { "notepadqq", NULL };
 static const char *browsercmd[]    = { "librewolf", NULL };
 static const char *filemancmd[]    = { "pcmanfm", NULL };
 static const char *passmancmd[]    = { "bitwarden-desktop", NULL };
@@ -102,8 +103,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return,    spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,    spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_w,         spawn,          {.v = appearancecmd } },
+	{ MODKEY|ShiftMask,             XK_k,         spawn,          {.v = screenshotcmd } },
 	{ MODKEY|ShiftMask,             XK_a,         spawn,          {.v = audioctrlcmd } },
-	{ MODKEY|ShiftMask,             XK_g,         spawn,          {.v = guieditorcmd } },
 	{ MODKEY|ShiftMask,             XK_u,         spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_d,         spawn,          {.v = filemancmd } },
 	{ MODKEY|ShiftMask,             XK_p,         spawn,          {.v = passmancmd } },
