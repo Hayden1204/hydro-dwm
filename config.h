@@ -54,6 +54,7 @@ static const Rule rules[] = {
 	{ "Usbimager",        NULL,     NULL,           0,         1,          0,           1,        -1 },
 	{ "PollyMC",          NULL,     NULL,           0,         1,          0,           1,        -1 },
 	{ "antimicrox",       NULL,     NULL,           0,         1,          0,           1,        -1 },
+	{ "Zenity",           NULL,     NULL,           0,         1,          0,           1,        -1 },
 };
 
 /* layout(s) */
