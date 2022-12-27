@@ -87,7 +87,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 
 static const char *appearancecmd[] = { "lxappearance", NULL };
-static const char *screenshotcmd[] = { "gnome-screenshot", "-i", NULL };
+static const char *screenshotcmd[] = { "sh", "/home/hayden/maim_dmenu", NULL };
 static const char *audioctrlcmd[]  = { "pavucontrol", NULL };
 static const char *browsercmd[]    = { "librewolf", NULL };
 static const char *filemancmd[]    = { "pcmanfm", NULL };
