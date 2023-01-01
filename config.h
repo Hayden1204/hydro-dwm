@@ -55,6 +55,7 @@ static const Rule rules[] = {
 	{ "PollyMC",          NULL,     NULL,           0,         1,          0,           1,        -1 },
 	{ "antimicrox",       NULL,     NULL,           0,         1,          0,           1,        -1 },
 	{ "Zenity",           NULL,     NULL,           0,         1,          0,           1,        -1 },
+	{ "Pcmanfm",          NULL,     "Execute File", 0,         1,          0,           1,        -1 },
 };
 
 /* layout(s) */
@@ -94,7 +95,7 @@ static const char *filemancmd[]    = { "pcmanfm", NULL };
 static const char *passmancmd[]    = { "bitwarden-desktop", NULL };
 static const char *virtmancmd[]    = { "virt-manager", NULL };
 static const char *youtubecmd[]    = { "freetube", NULL };
-static const char *editorcmd[]     = { "st", "-e", "nvim", NULL };
+static const char *editorcmd[]     = { "geany", NULL };
 static const char *matrixcmd[]     = { "element-desktop", NULL };
 static const char *signalcmd[]     = { "signal-desktop", NULL };
 static const char *imagercmd[]     = { "usbimager", NULL };
