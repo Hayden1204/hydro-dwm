@@ -13,8 +13,8 @@ static const int extrabar           = 1;        /* 0 means no extra bar */
 static const char statussep         = ';';      /* separator between statuses */
 static const char *fonts[]          = { "JetBrains Mono:size=13" };
 static const char dmenufont[]       = "JetBrains Mono:size=13";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
+static const char col_gray1[]       = "#282a33";
+static const char col_gray2[]       = "#3e434e";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#5294e2";
