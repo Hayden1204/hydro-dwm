@@ -11,8 +11,8 @@ static const int showbar            = 1;        /* 0 means no standard bar */
 static const int topbar             = 1;        /* 0 means standard bar at bottom */
 static const int extrabar           = 1;        /* 0 means no extra bar */
 static const char statussep         = ';';      /* separator between statuses */
-static const char *fonts[]          = { "JetBrains Mono:size=13" };
-static const char dmenufont[]       = "JetBrains Mono:size=13";
+static const char *fonts[]          = { "JetBrains Mono Medium:size=13" };
+static const char dmenufont[]       = "JetBrains Mono Medium:size=13";
 static const char col_gray1[]       = "#282a33";
 static const char col_gray2[]       = "#3e434e";
 static const char col_gray3[]       = "#bbbbbb";
@@ -59,7 +59,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.40; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.45; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -88,7 +88,6 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 
 static const char *appearancecmd[] = { "lxappearance", NULL };
-static const char *screenshotcmd[] = { "sh", "/home/hayden/maim_dmenu", NULL };
 static const char *audioctrlcmd[]  = { "pavucontrol", NULL };
 static const char *browsercmd[]    = { "librewolf", NULL };
 static const char *filemancmd[]    = { "pcmanfm", NULL };
@@ -105,7 +104,6 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return,    spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,    spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_w,         spawn,          {.v = appearancecmd } },
-	{ MODKEY|ShiftMask,             XK_k,         spawn,          {.v = screenshotcmd } },
 	{ MODKEY|ShiftMask,             XK_a,         spawn,          {.v = audioctrlcmd } },
 	{ MODKEY|ShiftMask,             XK_u,         spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_d,         spawn,          {.v = filemancmd } },
@@ -118,6 +116,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_i,         spawn,          {.v = imagercmd } },
 	{ MODKEY,                       XK_b,         togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,         toggleextrabar, {0} },
+	{ MODKEY|ShiftMask,             XK_j,         rotatestack,    {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,         rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_j,         focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,         focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,         incnmaster,     {.i = +1 } },
