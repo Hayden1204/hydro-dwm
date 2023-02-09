@@ -4,15 +4,15 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const Gap default_gap        = {.isgap = 1, .realgap = 15, .gappx = 15};
-static const unsigned int snap      = 32;       /* snap pixel */
+static const Gap default_gap        = {.isgap = 1, .realgap = 10, .gappx = 10};
+static const unsigned int snap      = 16;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no standard bar */
 static const int topbar             = 1;        /* 0 means standard bar at bottom */
 static const int extrabar           = 1;        /* 0 means no extra bar */
 static const char statussep         = ';';      /* separator between statuses */
-static const char *fonts[]          = { "JetBrains Mono Medium:size=13" };
-static const char dmenufont[]       = "JetBrains Mono Medium:size=13";
+static const char *fonts[]          = { "JetBrains Mono Medium:size=12" };
+static const char dmenufont[]       = "JetBrains Mono Medium:size=12";
 static const char col_gray1[]       = "#282a33";
 static const char col_gray2[]       = "#3e434e";
 static const char col_gray3[]       = "#bbbbbb";
@@ -36,7 +36,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -59,10 +59,10 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.45; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const float mfact     = 0.475; /* factor of master area size [0.05..0.95] */
+static const int nmaster     = 1;     /* number of clients in master area */
+static const int resizehints = 1;     /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 1;  /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -151,6 +151,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_6,                         5)
 	TAGKEYS(                        XK_7,                         6)
 	TAGKEYS(                        XK_8,                         7)
+	TAGKEYS(                        XK_9,                         8)
 	{ MODKEY|ShiftMask,             XK_q,         quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_x,         quit,           {1} }, 
 };
