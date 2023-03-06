@@ -11,8 +11,8 @@ static const int showbar            = 1;        /* 0 means no standard bar */
 static const int topbar             = 1;        /* 0 means standard bar at bottom */
 static const int extrabar           = 1;        /* 0 means no extra bar */
 static const char statussep         = ';';      /* separator between statuses */
-static const char *fonts[]          = { "JetBrains Mono Medium:size=12" };
-static const char dmenufont[]       = "JetBrains Mono Medium:size=12";
+static const char *fonts[]          = { "JetBrains Mono Medium:size=13" };
+static const char dmenufont[]       = "JetBrains Mono Medium:size=13";
 static const char col_gray1[]       = "#282a33";
 static const char col_gray2[]       = "#3e434e";
 static const char col_gray3[]       = "#bbbbbb";
@@ -25,12 +25,10 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
-	"pipewire", NULL,
-	"pipewire-pulse", NULL,
-	"wireplumber", NULL,
+	"gentoo-pipewire-launcher", NULL,
 	"redshift", NULL,
-	"picom", "--no-fading-openclose", NULL,
-	"nitrogen", "--restore", NULL,
+	/* "picom", "-c", "--no-fading-openclose", NULL,
+	"nitrogen", "--restore", NULL, */
 	"slstatus", NULL,
 	NULL /* terminate */
 };
@@ -87,30 +85,28 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
-static const char *appearancecmd[] = { "lxappearance", NULL };
-static const char *audioctrlcmd[]  = { "pavucontrol", NULL };
-static const char *browsercmd[]    = { "librewolf", NULL };
-static const char *filemancmd[]    = { "pcmanfm", NULL };
-static const char *passmancmd[]    = { "bitwarden-desktop", NULL };
-static const char *virtmancmd[]    = { "virt-manager", NULL };
-static const char *youtubecmd[]    = { "freetube", NULL };
-static const char *editorcmd[]     = { "geany", NULL };
-static const char *matrixcmd[]     = { "element-desktop", NULL };
-static const char *signalcmd[]     = { "signal-desktop", NULL };
-static const char *imagercmd[]     = { "usbimager", NULL };
+static const char *gtkappearancecmd[] = { "lxappearance", NULL };
+static const char *qtappearancecmd[]  = { "qt5ct", NULL };
+static const char *torbrowsercmd[]    = { "/home/hayden/tor-browser/Browser/firefox", NULL };
+static const char *browsercmd[]       = { "librewolf-bin", NULL };
+static const char *filemancmd[]       = { "pcmanfm", NULL };
+static const char *passmancmd[]       = { "torsocks bitwarden-desktop", NULL };
+static const char *virtmancmd[]       = { "virt-manager", NULL };
+static const char *matrixcmd[]        = { "torsocks", "/home/hayden/Applications/Cinny_desktop-x86_64.AppImage", NULL };
+static const char *signalcmd[]        = { "torsocks", "signal-desktop", NULL };
+static const char *imagercmd[]        = { "usbimager", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key           function        argument */
 	{ MODKEY|ShiftMask,             XK_Return,    spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,    spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_w,         spawn,          {.v = appearancecmd } },
-	{ MODKEY|ShiftMask,             XK_a,         spawn,          {.v = audioctrlcmd } },
-	{ MODKEY|ShiftMask,             XK_u,         spawn,          {.v = browsercmd } },
+	{ MODKEY|ShiftMask,             XK_g,         spawn,          {.v = gtkappearancecmd } },
+	{ MODKEY|ShiftMask,             XK_t,         spawn,          {.v = qtappearancecmd } },
+	{ MODKEY|ShiftMask,             XK_o,         spawn,          {.v = torbrowsercmd } },
+	{ MODKEY|ShiftMask,             XK_w,         spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_d,         spawn,          {.v = filemancmd } },
 	{ MODKEY|ShiftMask,             XK_p,         spawn,          {.v = passmancmd } },
 	{ MODKEY|ShiftMask,             XK_v,         spawn,          {.v = virtmancmd } },
-	{ MODKEY|ShiftMask,             XK_y,         spawn,          {.v = youtubecmd } },
-	{ MODKEY|ShiftMask,             XK_e,         spawn,          {.v = editorcmd } },
 	{ MODKEY|ShiftMask,             XK_m,         spawn,          {.v = matrixcmd } },
 	{ MODKEY|ShiftMask,             XK_s,         spawn,          {.v = signalcmd } },
 	{ MODKEY|ShiftMask,             XK_i,         spawn,          {.v = imagercmd } },
