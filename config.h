@@ -4,7 +4,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const Gap default_gap        = {.isgap = 1, .realgap = 10, .gappx = 10};
+static const Gap default_gap        = {.isgap = 1, .realgap = 15, .gappx = 15};
 static const unsigned int snap      = 16;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no standard bar */
@@ -27,8 +27,8 @@ static const char *colors[][3]      = {
 static const char *const autostart[] = {
 	"gentoo-pipewire-launcher", NULL,
 	"redshift", NULL,
-	/* "picom", "-c", "--no-fading-openclose", NULL,
-	"nitrogen", "--restore", NULL, */
+	"picom", "-c", "--no-fading-openclose", NULL,
+	"nitrogen", "--restore", NULL,
 	"slstatus", NULL,
 	NULL /* terminate */
 };
@@ -87,45 +87,45 @@ static const char *termcmd[]  = { "st", NULL };
 
 static const char *gtkappearancecmd[] = { "lxappearance", NULL };
 static const char *qtappearancecmd[]  = { "qt5ct", NULL };
-static const char *torbrowsercmd[]    = { "/home/hayden/tor-browser/Browser/firefox", NULL };
+static const char *torbrowsercmd[]    = { "torbrowser-launcher", NULL };
 static const char *browsercmd[]       = { "librewolf-bin", NULL };
 static const char *filemancmd[]       = { "pcmanfm", NULL };
 static const char *passmancmd[]       = { "torsocks bitwarden-desktop", NULL };
 static const char *virtmancmd[]       = { "virt-manager", NULL };
-static const char *matrixcmd[]        = { "torsocks", "/home/hayden/Applications/Cinny_desktop-x86_64.AppImage", NULL };
-static const char *signalcmd[]        = { "torsocks", "signal-desktop", NULL };
+static const char *matrixcmd[]        = { "/home/hayden/Applications/Cinny_desktop-x86_64.AppImage", NULL };
+static const char *signalcmd[]        = { "signal-desktop", NULL };
 static const char *imagercmd[]        = { "usbimager", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key           function        argument */
-	{ MODKEY|ShiftMask,             XK_Return,    spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_d,         spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,    spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_g,         spawn,          {.v = gtkappearancecmd } },
-	{ MODKEY|ShiftMask,             XK_t,         spawn,          {.v = qtappearancecmd } },
-	{ MODKEY|ShiftMask,             XK_o,         spawn,          {.v = torbrowsercmd } },
-	{ MODKEY|ShiftMask,             XK_w,         spawn,          {.v = browsercmd } },
-	{ MODKEY|ShiftMask,             XK_d,         spawn,          {.v = filemancmd } },
-	{ MODKEY|ShiftMask,             XK_p,         spawn,          {.v = passmancmd } },
-	{ MODKEY|ShiftMask,             XK_v,         spawn,          {.v = virtmancmd } },
-	{ MODKEY|ShiftMask,             XK_m,         spawn,          {.v = matrixcmd } },
-	{ MODKEY|ShiftMask,             XK_s,         spawn,          {.v = signalcmd } },
-	{ MODKEY|ShiftMask,             XK_i,         spawn,          {.v = imagercmd } },
-	{ MODKEY,                       XK_b,         togglebar,      {0} },
-	{ MODKEY|ShiftMask,             XK_b,         toggleextrabar, {0} },
+	{ MODKEY,                       XK_g,         spawn,          {.v = gtkappearancecmd } },
+	{ MODKEY,                       XK_q,         spawn,          {.v = qtappearancecmd } },
+	{ MODKEY,                       XK_o,         spawn,          {.v = torbrowsercmd } },
+	{ MODKEY,                       XK_w,         spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_f,         spawn,          {.v = filemancmd } },
+	{ MODKEY,                       XK_p,         spawn,          {.v = passmancmd } },
+	{ MODKEY,                       XK_v,         spawn,          {.v = virtmancmd } },
+	{ MODKEY,                       XK_m,         spawn,          {.v = matrixcmd } },
+	{ MODKEY,                       XK_s,         spawn,          {.v = signalcmd } },
+	{ MODKEY,                       XK_i,         spawn,          {.v = imagercmd } },
+	{ MODKEY|ShiftMask,             XK_b,         togglebar,      {0} },
+	{ MODKEY|ControlMask,           XK_b,         toggleextrabar, {0} },
 	{ MODKEY|ShiftMask,             XK_j,         rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,         rotatestack,    {.i = -1 } },
-	{ MODKEY,                       XK_j,         focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,         focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,         incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,         incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,         setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,         setmfact,       {.f = +0.05} },
+	{ MODKEY|ControlMask,           XK_j,         focusstack,     {.i = +1 } },
+	{ MODKEY|ControlMask,           XK_k,         focusstack,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_i,         incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_d,         incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_h,         setmfact,       {.f = -0.05} },
+	{ MODKEY|ShiftMask,             XK_l,         setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_BackSpace, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,       view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,         killclient,     {0} },
-	{ MODKEY,                       XK_t,         setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,         setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,         setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ControlMask,           XK_t,         setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ControlMask,           XK_f,         setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ControlMask,           XK_m,         setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,     setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,     togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,         togglefullscr,  {0} },
@@ -135,10 +135,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period,    focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,     tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,    tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_minus,     setgaps,        {.i = -5 } },
-	{ MODKEY,                       XK_equal,     setgaps,        {.i = +5 } },
-	{ MODKEY|ShiftMask,             XK_minus,     setgaps,        {.i = GAP_RESET } },
-	{ MODKEY|ShiftMask,             XK_equal,     setgaps,        {.i = GAP_TOGGLE} },
+	{ MODKEY|ControlMask,           XK_h,         setgaps,        {.i = -5 } },
+	{ MODKEY|ControlMask,           XK_l,         setgaps,        {.i = +5 } },
+	{ MODKEY|ControlMask,           XK_u,         setgaps,        {.i = GAP_RESET } },
+	{ MODKEY|ControlMask,           XK_i,         setgaps,        {.i = GAP_TOGGLE} },
 	TAGKEYS(                        XK_1,                         0)
 	TAGKEYS(                        XK_2,                         1)
 	TAGKEYS(                        XK_3,                         2)
