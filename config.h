@@ -25,11 +25,11 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
-	"gentoo-pipewire-launcher", NULL,
-	"redshift", NULL,
-	"picom", "-c", "--no-fading-openclose", NULL,
-	"nitrogen", "--restore", NULL,
 	"slstatus", NULL,
+	"picom", "-c", "--vsync", "--no-fading-openclose", NULL,
+	"nitrogen", "--restore", NULL,
+	"redshift", NULL,
+	"wmname", "LG3D", NULL,
 	NULL /* terminate */
 };
 
@@ -87,12 +87,15 @@ static const char *termcmd[]  = { "st", NULL };
 
 static const char *gtkappearancecmd[] = { "lxappearance", NULL };
 static const char *qtappearancecmd[]  = { "qt5ct", NULL };
+static const char *mediacentrecmd[]   = { "kodi", NULL };
 static const char *torbrowsercmd[]    = { "torbrowser-launcher", NULL };
-static const char *browsercmd[]       = { "librewolf-bin", NULL };
+static const char *controlcmd[]       = { "/home/hayden/scripts/hydro-control.sh", NULL };
+static const char *browsercmd[]       = { "firefox", NULL };
 static const char *filemancmd[]       = { "pcmanfm", NULL };
-static const char *passmancmd[]       = { "torsocks bitwarden-desktop", NULL };
+static const char *passmancmd[]       = { "bitwarden-desktop", NULL };
 static const char *virtmancmd[]       = { "virt-manager", NULL };
-static const char *matrixcmd[]        = { "/home/hayden/Applications/Cinny_desktop-x86_64.AppImage", NULL };
+static const char *volumecmd[]        = { "/home/hayden/scripts/volume.sh", NULL };
+static const char *matrixcmd[]        = { "cinny", NULL };
 static const char *signalcmd[]        = { "signal-desktop", NULL };
 static const char *imagercmd[]        = { "usbimager", NULL };
 
@@ -102,11 +105,14 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return,    spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_g,         spawn,          {.v = gtkappearancecmd } },
 	{ MODKEY,                       XK_q,         spawn,          {.v = qtappearancecmd } },
+	{ MODKEY,                       XK_k,         spawn,          {.v = mediacentrecmd } },
 	{ MODKEY,                       XK_o,         spawn,          {.v = torbrowsercmd } },
+	{ MODKEY|ControlMask,           XK_c,         spawn,          {.v = controlcmd } },
 	{ MODKEY,                       XK_w,         spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_f,         spawn,          {.v = filemancmd } },
 	{ MODKEY,                       XK_p,         spawn,          {.v = passmancmd } },
 	{ MODKEY,                       XK_v,         spawn,          {.v = virtmancmd } },
+	{ MODKEY|ControlMask,           XK_v,         spawn,          {.v = volumecmd } },
 	{ MODKEY,                       XK_m,         spawn,          {.v = matrixcmd } },
 	{ MODKEY,                       XK_s,         spawn,          {.v = signalcmd } },
 	{ MODKEY,                       XK_i,         spawn,          {.v = imagercmd } },
@@ -126,7 +132,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_t,         setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ControlMask,           XK_f,         setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ControlMask,           XK_m,         setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,     setlayout,      {0} },
+	{ MODKEY|ControlMask,           XK_space,     setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,     togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,         togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,         view,           {.ui = ~0 } },
